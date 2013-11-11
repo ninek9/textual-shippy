@@ -1,0 +1,286 @@
+/* Basic Body Structure */
+
+* {
+	margin: 0;
+	padding: 0;
+  	word-wrap: break-word;
+    font: 'Helvetica Neue' 12pt 300;
+}
+
+body {
+    background-color: #002b36;
+    color: #93a1a1;
+	height: 100%;
+ 	z-index: 100;
+	overflow: hidden;
+	overflow-y: visible;
+}
+
+div#body_home {
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 100;
+	max-height: 97.5%;
+	position: absolute;
+}
+
+.line {
+    margin-top: -1px;
+    padding: 2px 5px 3px;
+}
+
+div#body_home p {
+	clear: both;
+	position: relative;
+}
+
+
+/* LOADING SCREEN */
+body div#loading_screen {
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -11px;
+    margin-left: -150px;
+    width: 300px;
+    height: 21px;
+    font-size: 18px;
+    background: #002b36;
+    border: 1px solid #073642;
+    border-radius: 5px;
+    padding: 5px;
+    padding-left: 10px;
+    opacity: 1; /* Set by JavaScript */
+    -webkit-transition: opacity 0.8s linear;
+}
+
+
+/* TIME */
+ .time {
+	color: #586e75;
+	text-indent: 0;
+	word-wrap: normal;
+	white-space: nowrap;
+	display: inline-block;
+    padding-right: 6px;
+}
+
+
+/* LINKS */
+a {color: #586e75;}
+a:hover {text-decoration: none;}
+
+
+/* TOPIC BAR */
+#topic_bar {
+    top: 0;
+    left: 0;
+    right: 0;
+    color: #839496;
+    z-index: 400;
+    opacity: 0.95;
+    position: fixed;
+    background: #073642;
+    padding: 6px 8px 8px;
+    border-bottom: 1px solid #1c1c1c;
+    -webkit-box-shadow: 0 1px 5px #1c1c1c;
+}
+
+#topic_bar a, #topic_bar a:hover {color: #586e75;}
+
+
+/* IMAGES */
+a img {border: 0;}
+img {
+    display: block;
+    max-width: 95%;
+    padding-top: 5px;
+    padding-left: 8px;
+    padding-bottom: 5px;
+}
+
+
+/* REMEMBER LINE */
+div[id=mark] {
+    position: relative;
+    z-index: 295;
+    margin-top: -1px;
+    border-bottom: 1px dashed;
+    border-color: #444;
+    -webkit-transition: 0.2s linear;
+}
+
+
+/* NOTICE/CTCP/WALLOPS */
+div[type=ctcp],
+div[type=wallops],
+div[type=invite],
+div[type=system],
+div[type=join],
+div[type=part],
+div[type=kick],
+div[type=quit],
+div[type=kill],
+div[type=nick],
+div[type=mode],
+div[type=website],
+div[type=topic] {
+    color: #586e75;
+    font-style: italic;
+    font-weight: 300;
+  	z-index: 191;
+  	position: relative;
+}
+
+div[type=notice],
+div[type=error],
+div[type=reply],
+div[type=error_reply],
+div[type=debug_send],
+div[type=debug_receive] {
+    color: #088;
+    font-style: italic;
+    font-weight: 300;
+    z-index: 191;
+    position: relative;
+}
+
+div[type=notice] .sender {
+    color: #f00;
+}
+
+
+/* PRIVMSG */
+div[type=privmsg][highlight=false] {}
+
+div[type=privmsg][highlight=true],
+div[type=action][highlight=true] {
+  	background-color: #073642;
+    color: #eee8d5;
+    font-weight: 300;
+    border-top: 1px solid #586e75;
+    border-bottom: 1px solid #586e75;
+}
+
+div[type=privmsg] .message {}
+div[type=privmsg] p[type=myself] .message {}
+div[type=privmsg] .sender {}
+
+
+/* ACTION */
+div[type=action] {}
+
+div[type=action] .message,
+div[type=action] .sender,
+div[type=action] p[type=myself] .message {
+    color: #93a1a1;
+    font-style: italic;
+    font-weight: 300;
+}
+
+div[type=action] .sender:before {
+	content: "\2022";
+	margin-right: 0.4em;
+}
+
+div[type=action] .sender:after {content: "";}
+
+
+/* GENERAL EVENT */
+ div[type=join] .message:before {
+	content: "→";
+  	color: #586e75;
+  	margin-right: 3px;
+}
+
+ div[type=kick] .message:before,
+ div[type=part] .message:before,
+ div[type=quit] .message:before {
+	content: "←";
+  	color: #586e75;
+  	margin-right: 3px;
+}
+
+ div[type=nick] .message:before {
+	content:"•";
+  	color: #586e75;
+  	margin-right: 3px;
+}
+
+/* NICKNAME COLORS */
+.inline_nickname {color: #2aa198;}
+div[type=privmsg] .sender[type=myself], div[type=action] .sender[type=myself] {color: #2aa198;}
+.sender[type=normal][colornumber='0'], .inline_nickname[colornumber='0'] {color: #859900;}
+.sender[type=normal][colornumber='1'], .inline_nickname[colornumber='1'] {color: #268bd2;}
+.sender[type=normal][colornumber='2'], .inline_nickname[colornumber='2'] {color: #6c71c4;}
+.sender[type=normal][colornumber='3'], .inline_nickname[colornumber='3'] {color: #d33682;}
+.sender[type=normal][colornumber='4'], .inline_nickname[colornumber='4'] {color: #dc322f;}
+.sender[type=normal][colornumber='5'], .inline_nickname[colornumber='5'] {color: #cb4b16;}
+.sender[type=normal][colornumber='6'], .inline_nickname[colornumber='6'] {color: #b58900;}
+.sender[type=normal][colornumber='7'], .inline_nickname[colornumber='7'] {color: #268bd2;}
+.sender[type=normal][colornumber='8'], .inline_nickname[colornumber='8'] {color: #6c71c4;}
+.sender[type=normal][colornumber='9'], .inline_nickname[colornumber='9'] {color: #d33682;}
+.sender[type=normal][colornumber='10'], .inline_nickname[colornumber='10'] {color: #dc322f;}
+.sender[type=normal][colornumber='11'], .inline_nickname[colornumber='11'] {color: #cb4b16;}
+.sender[type=normal][colornumber='12'], .inline_nickname[colornumber='12'] {color: #b58900;}
+.sender[type=normal][colornumber='13'], .inline_nickname[colornumber='13'] {color: #268bd2;}
+.sender[type=normal][colornumber='14'], .inline_nickname[colornumber='14'] {color: #6c71c4;}
+.sender[type=normal][colornumber='15'], .inline_nickname[colornumber='15'] {color: #d33682;}
+.sender[type=normal][colornumber='16'], .inline_nickname[colornumber='16'] {color: #dc322f;}
+.sender[type=normal][colornumber='17'], .inline_nickname[colornumber='17'] {color: #cb4b16;}
+.sender[type=normal][colornumber='18'], .inline_nickname[colornumber='18'] {color: #b58900;}
+.sender[type=normal][colornumber='19'], .inline_nickname[colornumber='19'] {color: #268bd2;}
+.sender[type=normal][colornumber='20'], .inline_nickname[colornumber='20'] {color: #6c71c4;}
+.sender[type=normal][colornumber='21'], .inline_nickname[colornumber='21'] {color: #d33682;}
+.sender[type=normal][colornumber='22'], .inline_nickname[colornumber='22'] {color: #dc322f;}
+.sender[type=normal][colornumber='23'], .inline_nickname[colornumber='23'] {color: #cb4b16;}
+.sender[type=normal][colornumber='24'], .inline_nickname[colornumber='24'] {color: #b58900;}
+.sender[type=normal][colornumber='25'], .inline_nickname[colornumber='25'] {color: #97C74B;}
+.sender[type=normal][colornumber='26'], .inline_nickname[colornumber='26'] {color: #268bd2;}
+.sender[type=normal][colornumber='27'], .inline_nickname[colornumber='27'] {color: #6c71c4;}
+.sender[type=normal][colornumber='28'], .inline_nickname[colornumber='28'] {color: #d33682;}
+.sender[type=normal][colornumber='29'], .inline_nickname[colornumber='29'] {color: #dc322f;}
+.sender[type=normal][colornumber='30'], .inline_nickname[colornumber='30'] {color: #cb4b16;}
+
+
+
+/* mIRC Color Codes */
+
+/* DEVELOPERS DO NOT MODIFY ANY OF THE BELOW MENTIONED CSS ELEMENTS
+ THESE ELEMENTS MUST BE PRESERVED TO MATCH STATIC DEFENITIONS IN THE
+ TEXTUAL SOURCE CODE. — DO NOT MODIFY OR DELETE! */
+
+.effect[color-number='0'] { color: #ffffff; }
+.effect[color-number='1'] { color: #000000; }
+.effect[color-number='2'] { color: #000088; }
+.effect[color-number='3'] { color: #008800; }
+.effect[color-number='4'] { color: #ff0000; }
+.effect[color-number='5'] { color: #880000; }
+.effect[color-number='6'] { color: #880088; }
+.effect[color-number='7'] { color: #ff8800; }
+.effect[color-number='8'] { color: #ffff00; }
+.effect[color-number='9'] { color: #00ff00; }
+.effect[color-number='10'] { color: #008888; }
+.effect[color-number='11'] { color: #00ffff; }
+.effect[color-number='12'] { color: #0000ff; }
+.effect[color-number='13'] { color: #ff00ff; }
+.effect[color-number='14'] { color: #888888; }
+.effect[color-number='15'] { color: #cccccc; }
+
+.effect[bgcolor-number='0'] { background-color: #ffffff; }
+.effect[bgcolor-number='1'] { background-color: #000000; }
+.effect[bgcolor-number='2'] { background-color: #000088; }
+.effect[bgcolor-number='3'] { background-color: #008800; }
+.effect[bgcolor-number='4'] { background-color: #ff0000; }
+.effect[bgcolor-number='5'] { background-color: #880000; }
+.effect[bgcolor-number='6'] { background-color: #880088; }
+.effect[bgcolor-number='7'] { background-color: #ff8800; }
+.effect[bgcolor-number='8'] { background-color: #ffff00; }
+.effect[bgcolor-number='9'] { background-color: #00ff00; }
+.effect[bgcolor-number='10'] { background-color: #008888; }
+.effect[bgcolor-number='11'] { background-color: #00ffff; }
+.effect[bgcolor-number='12'] { background-color: #0000ff; }
+.effect[bgcolor-number='13'] { background-color: #ff00ff; }
+.effect[bgcolor-number='14'] { background-color: #888888; }
+.effect[bgcolor-number='15'] { background-color: #cccccc; }
