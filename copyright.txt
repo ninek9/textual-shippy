@@ -1,7 +1,1 @@
-This style is a modified and stripped down version of 
-the "Simplified" theme developed by "Cowboy" Ben Alman
-(http://benalman.com/). It is copyright to him.
-
-The color scheme has been adapted to use the scheme
-"Solarized" by Ethan Schoonover.
-(http://ethanschoonover.com/solarized)
+The styles are derived from the Shippy app built by @andyet.

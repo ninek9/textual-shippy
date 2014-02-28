@@ -1,0 +1,41 @@
+{{! The 'line types' folder needs to be copied to a custom style to modify this file. }}
+
+<div ltype="{{lineType}}" 
+	type="{{lineType}}"
+	command="{{rawCommand}}"
+	highlight="{{highlightAttributeRepresentation}}" 
+	class="line {{lineClassAttributeRepresentation}}" 
+	id="line-{{lineNumber}}"
+	time="{{lineRenderTime}}">
+		
+	<div class="sender"
+		onclick="Textual.nicknameSingleClicked()"
+		ondblclick="Textual.nicknameDoubleClicked()"
+		oncontextmenu="Textual.openStandardNicknameContextualMenu()" 
+		ltype="{{nicknameType}}" type="{{nicknameType}}"
+		nick="{{nickname}}" 
+		{{#nicknameColorHashingEnabled}} 
+			colornumber="{{nicknameColorNumber}}"
+		{{/nicknameColorHashingEnabled}}>{{formattedNickname}}</div>
+
+	<div class="linecontent">
+		{{#isRemoteMessage}}
+			<p>
+		{{^isRemoteMessage}}
+			<p ltype="{{nicknameType}}" type="{{nicknameType}}">
+		{{/isRemoteMessage}}
+			{{#isEncrypted}}
+				{{{encryptedMessageLockTemplate}}}
+			{{/isEncrypted}}
+			<span class="message" ltype="{{lineType}}" type="{{lineType}}">
+				{{{formattedMessage}}}
+				{{#inlineMediaAvailable}}
+					{{#inlineMediaArray}}
+						<a href="{{{anchorLink}}}" onclick="return Textual.toggleInlineImage('{{anchorInlineImageUniqueID}}')"><img src="{{{imageURL}}}" class="inlineimage" id="inlineImage-{{anchorInlineImageUniqueID}}" style="display: none;" title="Hide image by shift clicking." /></a>
+					{{/inlineMediaArray}}
+				{{/inlineMediaAvailable}}
+			</span>
+			<span class="time">{{formattedTimestamp}} </span>
+		</p>
+	</div>
+</div>

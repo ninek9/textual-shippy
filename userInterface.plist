@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>Underlying Window Color</key>
-	<string>#002b36</string>
+	<string>#dbdbdb</string>
 	<key>Server List</key>
 	<dict>
 		<key>Text Font Style</key>
@@ -11,7 +11,7 @@
 		<key>Text Font Size</key>
 		<integer>13</integer>
 		<key>Background Color</key>
-		<string>#002b36</string>
+		<string>#dbdbdb</string>
 		<key>Highlight Color</key>
 		<string>#d33682</string>
 		<key>New Private Message Color</key>
@@ -45,7 +45,7 @@
 		<key>Text Font Size</key>
 		<integer>12</integer>
 		<key>Background Color</key>
-		<string>#002b36</string>
+		<string>#dbdbdb</string>
 		<key>Text Color</key>
 		<string>#b58900</string>
 		<key>Op Text Color</key>
@@ -71,7 +71,7 @@
 		<key>Text Font Size</key>
 		<integer>0</integer>
 		<key>Background Color</key>
-		<string>#002b36</string>
+		<string>#dbdbdb</string>
 		<key>Text Color</key>
 		<string>#839496</string>
 	</dict>
