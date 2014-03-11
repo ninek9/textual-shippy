@@ -94,13 +94,10 @@ img {
 
 /* base style for each line */
 .line {
-    /*padding: 4px;
-    padding-left: 6px;*/
-
     position: relative;
     z-index: 1;
     margin: 0;
-    padding: 0 2px 0 60px;
+    padding: 2px 2px 3px 60px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: 100%;
@@ -195,8 +192,8 @@ img {
 
 /* notice/ctcp/wallops/etc */
 div[type=mode][command=mode],
-div[type=mode].line { 
-    display: none; 
+div[type=mode].line {
+    display: none;
 }
 
 div[type=ctcp],
@@ -388,12 +385,3 @@ div[type=privmsg] .sender[type=myself], div[type=action] .sender[type=myself] {c
 .effect[bgcolor-number='13'] { background-color: #ff00ff; }
 .effect[bgcolor-number='14'] { background-color: #888888; }
 .effect[bgcolor-number='15'] { background-color: #cccccc; }
-
-
-
-
-
-
-
-
-
