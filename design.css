@@ -1,7 +1,5 @@
-/* basic body structure */
-
 body {
-    background: #ecf0f2;
+    background: #eef2f4;
     font-weight: normal;
     margin: 0;
     margin-top: 30px;
@@ -13,18 +11,10 @@ body {
 }
 
 div#body_home {
-    /*left: 0;
-    right: 0;
-    bottom: 0;
-    max-height: 97.5%;
-    position: relative;*/
+
 }
 
 div#body_home p {
-    /*font-style: normal;
-    clear: both;
-    position: relative;*/
-
     margin: 0;
 }
 
@@ -72,12 +62,6 @@ a:hover {text-decoration: none;}
 /* images */
 a img {border: 0;}
 img {
-    /*display: block;
-    max-width: 95%;
-    padding-top: 5px;
-    padding-left: 8px;
-    padding-bottom: 5px;*/
-
     display: inline-block;
     vertical-align: middle;
     margin: 0 5px;
@@ -104,7 +88,8 @@ img {
 }
 
 .linecontent {
-    padding: 2px 0 2px 18px;
+    padding: 0;
+    padding-left: 5px;
     display: inline-block;
     margin: 0;
     min-width: 20px;
@@ -114,34 +99,21 @@ img {
 }
 
 .sender {
+    font-weight: bold;
     cursor: pointer;
     position: absolute;
-    top: 12px;
+    top: 8px;
     left: 0;
     width: 65px;
     max-width: 65px;
     font-size: 12px;
     text-align: right;
     margin: 0;
-    padding: 2px;
+    padding: 0 2px;
 }
 
 /* time */
  .time {
-    /*color: #f8f8f8;
-    font-size: 90%;
-    font-style: italic;
-    text-indent: 0;
-    word-wrap: normal;
-    white-space: nowrap;
-    text-transform: lowercase;
-    padding: 4px;
-    position: absolute;
-    right: -9999px;
-    top: -4px;
-    background: #bdbdbd;
-    box-shadow: 0 0 2px #bbb;*/
-
     color: #777;
     display: none;
     background: #fff;
@@ -161,7 +133,6 @@ img {
 }
 
 .line:hover .time {
-    /*right: -3px;*/
     display: block;
 }
 
@@ -170,19 +141,9 @@ img {
     position: relative;
     z-index: 295;
     margin-top: -1px;
-    border-bottom: 2px dotted #61b0db;
+    border-bottom: 1px dotted #61b0db;
     -webkit-transition: 0.2s linear;
 }
-
-/*#mark + div p .time {
-    display: block;
-    left: 50%;
-    right: auto;
-    margin-left: -37px;
-    position: relative;
-    width: 74px;
-    text-align: center;
-}*/
 
 #mark + div p .message {
     display: block;
@@ -221,15 +182,11 @@ div[type=reply],
 div[type=error_reply],
 div[type=debug_send],
 div[type=debug_receive] {
-    /*color: #088;
-    font-style: italic;
-    font-weight: 300;
-    z-index: 191;
-    position: relative;*/
+
 }
 
 div[type=notice] .sender {
-    /*color: #f00;*/
+
 }
 
 /* privmsg */
@@ -247,26 +204,15 @@ div[type=privmsg] .message,
 div[type=action] .message {
     /*previously empty*/
     border-radius: 5px;
-    padding: 7px;
+    padding: 5px 7px;
     color: #33404c;
     line-height: 20px;
     box-sizing: border-box;
-    border-bottom: 1px solid #d5d5d5;
+    display: inline-block;
+/*    border-bottom: 1px solid #d5d5d5;
     border-right: 1px solid #ededed;
     border-top: 1px solid #eaeaea;
-    display: inline-block;
-    background: #fff;
-}
-
-div[type=privmsg] .message:before {
-    /*previously empty*/
-    content: "◀";
-    color: #fff;
-    position: absolute;
-    left: 69px;
-    font-size: 12px;
-    text-shadow: rgba(0,0,0,0.2) 0 1px 0;
-    z-index: -1;
+    background: #fff;*/
 }
 
 /* action */
@@ -277,6 +223,7 @@ div[type=action] .message {
     color: #999;
     font-style: italic;
     text-shadow: #fff 0 1px 0;
+    margin-left: 10px;
 }
 
 div[type=action] .message:before {
