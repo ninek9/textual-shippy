@@ -1,17 +1,17 @@
 body {
     background: #eef2f4;
+    background: #e8e8e8;
     font-weight: normal;
     margin: 0;
-    margin-top: 30px;
     word-wrap: break-word;
     word-break: break-word;
     color: #657b83;
-    padding: 5px;
-    padding-bottom: 10px;
+    padding: 5px 0 10px;
 }
 
 div#body_home {
-
+    background: #eef2f4;
+    padding: 30px 0 10px;
 }
 
 div#body_home p {
@@ -56,11 +56,13 @@ body div#loading_screen {
 
 /* links */
 a {color: #586e75;}
+
 a:hover {text-decoration: none;}
 
 
 /* images */
 a img {border: 0;}
+
 img {
     display: inline-block;
     vertical-align: middle;
@@ -80,55 +82,50 @@ img {
 .line {
     position: relative;
     z-index: 1;
-    margin: 0;
-    padding: 0 2px 0 60px;
+    margin: 15px 0 0;
+    padding: 0;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    width: 100%;
+}
+
+.line.consecutive {
+    margin-top: 0;
 }
 
 .linecontent {
     padding: 0;
-    padding-left: 5px;
-    display: inline-block;
+    display: block;
     margin: 0;
-    min-width: 20px;
-    max-width: 100%;
+    min-width: 30px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
 
 .sender {
     font-weight: bold;
+    font-size: 1.1em;
     cursor: pointer;
-    position: absolute;
-    top: 8px;
-    left: 0;
-    width: 65px;
-    max-width: 65px;
-    font-size: 12px;
-    text-align: right;
     margin: 0;
-    padding: 0 2px;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.consecutive .sender {
+    display: none;
 }
 
 /* time */
  .time {
-    color: #777;
     display: none;
     background: #fff;
-    border: 1px solid rgba(215,215,215,0);
     color: #00aeef;
     font-size: 11px;
-    left: 77px;
-    top: -8px;
-    bottom: auto;
-    right: auto;
+    right: 10px;
+    top: 7px;
     padding: 1px 5px;
     position: absolute;
     -webkit-border-radius: 5px;
     -webkit-box-shadow: color 0 -1px 1px;
-    top: -8px;
     text-shadow: none;
 }
 
@@ -140,9 +137,10 @@ img {
 #mark {
     position: relative;
     z-index: 295;
-    margin-top: -1px;
-    border-bottom: 1px dotted #61b0db;
+    border-bottom: 2px solid #e8e8e8;
+    box-shadow: 0 1px 0 #fff;
     -webkit-transition: 0.2s linear;
+    margin-top: 10px;
 }
 
 #mark + div p .message {
@@ -181,57 +179,70 @@ div[type=error],
 div[type=reply],
 div[type=error_reply],
 div[type=debug_send],
-div[type=debug_receive] {
-
-}
-
-div[type=notice] .sender {
-
-}
+div[type=debug_receive] {}
 
 /* privmsg */
-div[type=privmsg][highlight=false] {}
+div[type=privmsg] {
+    padding: 0 15px;
+}
 
 /* highlight */
 div[type=privmsg][highlight=true],
 div[type=action][highlight=true],
 div[type=privmsg].selectedUser,
 div[type=action].selectedUser {
-    font-weight: bold;
+    font-weight: bold !important;
+}
+
+div[type=action],
+div[type=privmsg][highlight=true] {
+    background: #e7e7e7;
+    border-style: solid;
+    border-width: 1px 5px;
+    border-top-color: #ddd;
+    border-bottom-color: #d4d4d4;
+    box-shadow: 0 -1px 0 #d9d9d9;
+    padding: 5px 10px;
+}
+
+div[type=action].consecutive,
+div[type=privmsg][highlight=true].consecutive {
+    padding: 0 10px;
+}
+
+div[type=privmsg] .sender,
+div[type=action] .sender {
+    text-decoration: none;
 }
 
 div[type=privmsg] .message,
 div[type=action] .message {
-    /*previously empty*/
-    border-radius: 5px;
-    padding: 5px 7px;
+    padding: 3px 0;
     color: #33404c;
-    line-height: 20px;
+    line-height: 17px;
     box-sizing: border-box;
     display: inline-block;
-/*    border-bottom: 1px solid #d5d5d5;
-    border-right: 1px solid #ededed;
-    border-top: 1px solid #eaeaea;
-    background: #fff;*/
+}
+
+/* highlight color */
+div[type=privmsg][highlight=true] {
+    border-left-color: #eb008b;
+    border-right-color: #eb008b;
 }
 
 /* action */
-div[type=action] .message {
-    background: #e8e8e8;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
-    border-bottom: 1px solid #fff;
-    color: #999;
+div[type=action] {
+    border-left-color: #00aeef;
+    border-right-color: #00aeef;
     font-style: italic;
-    text-shadow: #fff 0 1px 0;
-    margin-left: 10px;
+}
+
+div[type=action] .message {
+    padding: 3px 0;
 }
 
 div[type=action] .message:before {
     display: none;
-}
-
-div[type=action] .sender {
-    font-style: italic;
 }
 
 /* general event */
@@ -247,6 +258,36 @@ div[type=action] .sender {
     content: "←";
     color: #586e75;
     margin-right: 3px;
+}
+
+/* faking a "history" display */
+div[sender=andbang] {
+    background: #ddd;
+    font-style: italic;
+    opacity: 0.6;
+    padding: 1px 40px;
+}
+
+/*div[sender=andbang].consecutive + div:not([sender=andbang]) {
+    margin-top: 35px;
+    border-top: 1px dashed #bbb;
+}*/
+
+div:not([sender=andbang]) + div[sender=andbang] {
+    border-top: 1px dashed #888;
+    margin-top: 30px;
+}
+
+div[sender=andbang][highlight=true].line {
+    padding: 0 35px;
+}
+
+/* fixing other .consecutive messages that get borked cause of ^^ */
+body[type=channel] div[type=mode] ~ div[command=privmsg] ~ div[type=privmsg].consecutive {
+    background: none;
+    font-style: normal;
+    opacity: 1;
+    padding: 0 0 0 15px;
 }
 
 /* nickname colors */

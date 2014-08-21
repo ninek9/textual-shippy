@@ -1,22 +1,24 @@
 {{! The 'line types' folder needs to be copied to a custom style to modify this file. }}
 
-<div ltype="{{lineType}}" 
+<div ltype="{{lineType}}"
 	type="{{lineType}}"
 	command="{{rawCommand}}"
-	highlight="{{highlightAttributeRepresentation}}" 
-	class="line {{lineClassAttributeRepresentation}}" 
+	highlight="{{highlightAttributeRepresentation}}"
+	class="line {{lineClassAttributeRepresentation}}"
 	id="line-{{lineNumber}}"
-	time="{{lineRenderTime}}">
-		
+	time="{{lineRenderTime}}" 
+    sender="{{nickname}}">
+
 	<div class="sender"
 		onclick="Textual.nicknameSingleClicked()"
 		ondblclick="Textual.nicknameDoubleClicked()"
-		oncontextmenu="Textual.openStandardNicknameContextualMenu()" 
+		oncontextmenu="Textual.openStandardNicknameContextualMenu()"
 		ltype="{{nicknameType}}" type="{{nicknameType}}"
-		nick="{{nickname}}" 
-		{{#nicknameColorHashingEnabled}} 
+		nick="{{nickname}}"
+		{{#nicknameColorHashingEnabled}}
 			colornumber="{{nicknameColorNumber}}"
-		{{/nicknameColorHashingEnabled}}>{{formattedNickname}}</div>
+		{{/nicknameColorHashingEnabled}}>{{formattedNickname}}
+	</div>
 
 	<div class="linecontent">
 		{{#isRemoteMessage}}
@@ -35,7 +37,7 @@
 					{{/inlineMediaArray}}
 				{{/inlineMediaAvailable}}
 			</span>
-			<span class="time">{{formattedTimestamp}} </span>
 		</p>
+		<span class="time">{{formattedTimestamp}} </span>
 	</div>
 </div>

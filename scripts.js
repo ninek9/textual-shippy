@@ -67,6 +67,11 @@ function updateNicknameAssociatedWithNewMessage(e) {
                 toggleSelectionStatusForNicknameInsideElement(senderSelector);
             }
         }
+        var prevnick = $(e).prev().children(".sender").attr("nick");
+        var thisnick = $(e).children(".sender").attr("nick");
+        if (prevnick == thisnick) {
+            $(e).addClass("consecutive");
+        }
     }
 }
 
